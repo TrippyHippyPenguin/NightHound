@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Build a NightHound glowing dog collar deal and choose every color.">
+  <title>Build a Deal — NightHound</title>
+  <script>document.documentElement.dataset.theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="deals-page">
+  <a class="skip-link" href="#deal-builder">Skip to deal builder</a>
+  <div class="announcement"><span>Free shipping over</span><strong class="deal-shipping-threshold">$35.00 USD</strong><i aria-hidden="true"></i><span>Bundle discounts applied automatically</span></div>
+  <header class="site-header deals-header">
+    <a class="brand" href="index.html" aria-label="NightHound home"><span class="brand-mark" aria-hidden="true"><i></i></span><span class="brand-name">NIGHT<b>HOUND</b></span></a>
+    <nav class="main-nav deal-nav" aria-label="Deal navigation"><a href="index.html#shop">Shop Collars</a><a href="#deal-builder">Deal Builder</a><a href="#more-offers">More Offers</a></nav>
+    <div class="header-actions">
+      <label class="currency-picker"><span class="sr-only">Choose currency</span><select id="deal-currency" aria-label="Choose currency"><option value="USD">USD</option><option value="CAD">CAD</option></select></label>
+      <button class="theme-toggle deal-theme-toggle icon-button" type="button" aria-label="Switch theme" aria-pressed="false"><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.1A8.5 8.5 0 0 1 8.9 4a8.5 8.5 0 1 0 11.1 11.1Z"></path></svg><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></button>
+      <a class="deal-close icon-button" href="index.html" aria-label="Return to store">×</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="deal-hero">
+      <div class="deal-hero-copy reveal"><p class="eyebrow"><span></span> NightHound deal lab</p><h1>Build more glow.<br><em>Pay less.</em></h1><p>Pick a deal, choose each collar color, add any extras, and watch your total update instantly.</p><div class="deal-hero-pills"><span>Five colors</span><span>Live savings</span><span>USD & CAD</span></div></div>
+      <div class="deal-hero-product" aria-hidden="true"><img src="assets/collar-blue.png" alt=""><span>Start with a pack.<br>Make it yours.</span></div>
+    </section>
+
+    <section class="deal-builder section" id="deal-builder">
+      <div class="deal-intro reveal"><p class="eyebrow"><span></span> Configure your order</p><h2>Your deal,<br>built your way.</h2><p>Select one offer, then assign a NightHound color to every collar in your pack.</p></div>
+
+      <div class="builder-layout">
+        <div class="builder-main">
+          <section class="builder-panel reveal" aria-labelledby="choose-deal-title">
+            <div class="builder-panel-head"><span>01</span><div><h3 id="choose-deal-title">Choose a deal</h3><p>Only one bundle offer applies at a time.</p></div></div>
+            <div class="deal-options" role="radiogroup" aria-label="Bundle deal">
+              <button class="deal-option selected" type="button" data-deal="popular" role="radio" aria-checked="true"><span class="deal-badge">Most Popular</span><b>Buy 2, Save $5</b><small>Two collars</small><strong data-usd="34.99">$34.99 USD</strong></button>
+              <button class="deal-option" type="button" data-deal="best" role="radio" aria-checked="false"><span class="deal-badge violet">Best Value</span><b>Buy 3, Save $12</b><small>Three collars</small><strong data-usd="47.99">$47.99 USD</strong></button>
+              <button class="deal-option" type="button" data-deal="family" role="radio" aria-checked="false"><span class="deal-badge muted">Family Pack</span><b>Four Collars</b><small>Multi-dog homes & backups</small><strong data-usd="59.99">$59.99 USD</strong></button>
+              <button class="deal-option" type="button" data-deal="third-half" role="radio" aria-checked="false"><span class="deal-badge muted">Flexible 3-Pack</span><b>3rd Collar 50% Off</b><small>Three collars</small><strong data-usd="49.98">$49.98 USD</strong></button>
+              <button class="deal-option" type="button" data-deal="bogo" role="radio" aria-checked="false"><span class="deal-badge seasonal">Limited Promo</span><b>BOGO 40% Off</b><small>Short-term campaign</small><strong data-usd="31.98">$31.98 USD</strong></button>
+            </div>
+          </section>
+
+          <section class="builder-panel reveal" aria-labelledby="choose-colors-title">
+            <div class="builder-panel-head"><span>02</span><div><h3 id="choose-colors-title">Choose every color</h3><p>Duplicates are welcome. Mix or match the whole pack.</p></div></div>
+            <div class="color-slots" id="color-slots"></div>
+          </section>
+
+          <section class="builder-panel reveal" aria-labelledby="extras-title">
+            <div class="builder-panel-head"><span>03</span><div><h3 id="extras-title">Add an extra</h3><p>Optional add-ons update your total instantly.</p></div></div>
+            <div class="addon-options">
+              <label class="addon-card"><input type="checkbox" id="second-addon"><span class="addon-check"></span><span><b>Second Collar Add-On</b><small>Choose one extra color</small></span><strong data-usd="12.99">+$12.99</strong></label>
+              <label class="addon-card"><input type="checkbox" id="mystery-addon"><span class="addon-check"></span><span><b>Mystery Color</b><small>We choose the surprise</small></span><strong data-usd="10.99">+$10.99</strong></label>
+            </div>
+          </section>
+        </div>
+
+        <aside class="deal-summary reveal" aria-live="polite">
+          <p class="summary-kicker">Your NightHound deal</p>
+          <h3 id="summary-deal">Buy 2, Save $5</h3>
+          <div class="summary-collars" id="summary-collars"></div>
+          <div class="summary-row"><span>Regular price</span><s id="summary-retail">$39.98 USD</s></div>
+          <div class="summary-row savings-row"><span>You save</span><strong id="summary-savings">$4.99 USD</strong></div>
+          <div class="shipping-meter"><div class="shipping-copy"><span id="shipping-message">You unlocked free shipping</span><strong id="shipping-status">Free</strong></div><div class="meter-track"><i id="shipping-progress"></i></div></div>
+          <div class="summary-total"><span>Deal total</span><strong id="summary-total">$34.99 USD</strong></div>
+          <button class="button button-primary deal-add-button" type="button">Add Deal to Cart</button>
+          <p class="deal-status" id="deal-status">Checkout connection comes in the functional build.</p>
+          <small>Bundle offers cannot stack with first-order discounts.</small>
+        </aside>
+      </div>
+    </section>
+
+    <section class="more-offers section" id="more-offers">
+      <div class="section-heading reveal"><div><p class="eyebrow"><span></span> More ways to convert</p><h2>Offers for every<br>part of the journey.</h2></div><p>These promotions stay separate from permanent bundle pricing to protect margin and keep the choice clear.</p></div>
+      <div class="offer-grid">
+        <article class="offer-card reveal"><span>Signup</span><h3>10% First Order</h3><p>Email or SMS signup. Non-stackable with bundle pricing.</p><b>Acquisition</b></article>
+        <article class="offer-card reveal"><span>Referral</span><h3>$5 Friend / $5 You</h3><p>The customer receives credit only after their friend completes an order.</p><b>Loyalty</b></article>
+        <article class="offer-card reveal"><span>Post-purchase</span><h3>Another for $12.99</h3><p>Offer one final collar before the original order ships.</p><b>High-margin add-on</b></article>
+        <article class="offer-card reveal"><span>Recovery</span><h3>Cart Reminder Sequence</h3><p>First reminder has no discount. A later reminder may offer 10%.</p><b>Abandonment</b></article>
+        <article class="offer-card wide reveal"><span>Seasonal</span><h3>Campaign-ready offers</h3><p>Halloween Night-Walk Sale, Winter Night Safety Sale, and other moments that naturally fit NightHound.</p><div class="season-tags"><i>Halloween</i><i>Winter Safety</i><i>Evening Walks</i></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-main"><div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><i></i></span><span class="brand-name">NIGHT<b>HOUND</b></span></a><p>Glowing gear for good dogs and nighttime walks.</p></div><div class="footer-links"><div><strong>Continue</strong><a href="index.html#shop">Shop Collars</a><a href="#deal-builder">Build a Deal</a></div><div><strong>Deal Rules</strong><a href="#more-offers">Other Offers</a><a href="index.html#how-it-works">How It Works</a></div></div></div><div class="footer-bottom"><span>© 2026 NightHound</span><span>No preference storage</span><span>USD & CAD supported</span></div></footer>
+  <div class="toast deal-toast" role="status" aria-live="polite">Your deal is ready</div>
+  <script src="deals.js"></script>
+</body>
+</html>
