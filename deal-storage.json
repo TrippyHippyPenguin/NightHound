@@ -1,0 +1,14 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "http://127.0.0.1:4173",
+      "localStorage": [
+        {
+          "name": "nighthound-cart",
+          "value": "[{\"name\":\"Red Glow Collar\",\"price\":18.99,\"color\":\"Red\"},{\"name\":\"Green Glow Collar\",\"price\":18.99,\"color\":\"Green\"},{\"name\":\"Blue Glow Collar\",\"price\":18.99,\"color\":\"Blue\"}]"
+        }
+      ]
+    }
+  ]
+}
