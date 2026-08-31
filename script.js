@@ -1,16 +1,28 @@
 const PRICE = 18.99;
 const SHIPPING_THRESHOLD = 40;
-const CAD_RATE = 1.38;
-const COLORS = ['Red', 'Green', 'Yellow', 'Blue', 'Orange'];
+const CURRENCIES = {
+  USD: { rate: 1, symbol: '$' },
+  CAD: { rate: 1.389, symbol: 'C$' },
+  EUR: { rate: 0.862, symbol: '€' },
+  GBP: { rate: 0.739, symbol: '£' },
+  AUD: { rate: 1.396, symbol: 'A$' },
+  NZD: { rate: 1.690, symbol: 'NZ$' }
+};
+const COLORS = ['Red', 'Green', 'Yellow', 'Blue', 'Orange', 'Pink'];
 const DOG_DESCRIPTIONS = {
   Red: 'Brindle mixed-breed dog',
   Green: 'Chocolate Labrador',
   Yellow: 'Golden retriever',
   Blue: 'Black-and-white border collie mix',
-  Orange: 'Beagle mix'
+  Orange: 'Beagle mix',
+  Pink: 'Black-and-white border collie mix'
 };
 const body = document.body;
 let activeCurrency = 'USD';
+try {
+  const savedCurrency = localStorage.getItem('nighthound-currency');
+  if (savedCurrency && CURRENCIES[savedCurrency]) activeCurrency = savedCurrency;
+} catch { /* Currency selection still works without persistence. */ }
 let themeWasManuallyChanged = false;
 let cart = [];
 
@@ -43,8 +55,8 @@ systemTheme.addEventListener('change', event => {
 });
 
 function formatPrice(usdPrice) {
-  const amount = activeCurrency === 'CAD' ? usdPrice * CAD_RATE : usdPrice;
-  return `${activeCurrency === 'CAD' ? 'C$' : '$'}${amount.toFixed(2)} ${activeCurrency}`;
+  const currency = CURRENCIES[activeCurrency];
+  return `${currency.symbol}${(usdPrice * currency.rate).toFixed(2)} ${activeCurrency}`;
 }
 
 function updateCurrency() {
@@ -60,6 +72,7 @@ function updateCurrency() {
 
 currencySelect?.addEventListener('change', event => {
   activeCurrency = event.target.value;
+  try { localStorage.setItem('nighthound-currency', activeCurrency); } catch { /* Keep the in-memory selection. */ }
   updateCurrency();
 });
 

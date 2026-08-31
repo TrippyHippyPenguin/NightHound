@@ -33,7 +33,7 @@
 </head>
 <body class="checkout-page">
   <a class="skip-link" href="#checkout-main">Skip to checkout</a>
-  <div class="announcement"><span>Checkout exclusive</span><strong>Save up to $15.97 USD</strong><i aria-hidden="true"></i><span>Free shipping over <strong>$40.00 USD</strong></span></div>
+  <div class="announcement"><span>Checkout exclusive</span><strong id="checkout-max-savings">Save up to $15.97 USD</strong><i aria-hidden="true"></i><span>Free shipping over <strong id="checkout-announcement-threshold">$40.00 USD</strong></span></div>
   <header class="site-header checkout-header">
     <a class="brand nav-brand" href="index.html" aria-label="NightHound home"><img class="nav-logo" src="assets/LogoNH.png" alt=""></a>
     <div class="checkout-progress" aria-label="Checkout progress"><span class="complete">Cart</span><i></i><span class="active">Information</span><i></i><span>Payment</span></div>
@@ -44,7 +44,7 @@
     <div class="checkout-content">
       <section class="checkout-intro"><p class="eyebrow"><span></span> Order information</p><h1>Checkout</h1><p>Complete your details, then choose whether one of today’s checkout-only deals belongs in your order.</p></section>
 
-      <form id="checkout-form" novalidate>
+      <form id="checkout-form" action="https://usebasin.com/f/567a8bd2fb06" method="POST" enctype="multipart/form-data">
         <section class="checkout-panel" aria-labelledby="contact-heading">
           <div class="checkout-panel-heading"><span>01</span><div><h2 id="contact-heading">Contact</h2><p>Where should we send your order updates?</p></div></div>
           <div class="field-grid"><label class="field full"><span>Email address</span><input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label><label class="field"><span>First name</span><input name="firstName" autocomplete="given-name" required></label><label class="field"><span>Last name</span><input name="lastName" autocomplete="family-name" required></label></div>
@@ -52,7 +52,7 @@
 
         <section class="checkout-panel" aria-labelledby="shipping-heading">
           <div class="checkout-panel-heading"><span>02</span><div><h2 id="shipping-heading">Shipping</h2><p>Enter the delivery address for this order.</p></div></div>
-          <div class="field-grid"><label class="field full"><span>Street address</span><input name="address" autocomplete="street-address" required></label><label class="field"><span>City</span><input name="city" autocomplete="address-level2" required></label><label class="field"><span>State</span><input name="state" autocomplete="address-level1" required></label><label class="field"><span>ZIP code</span><input name="postalCode" autocomplete="postal-code" inputmode="numeric" required></label><label class="field"><span>Country</span><select name="country" autocomplete="country-name"><option>United States</option><option>Canada</option></select></label></div>
+          <div class="field-grid"><label class="field full"><span>Street address</span><input name="address" autocomplete="street-address" required></label><label class="field"><span>City</span><input name="city" autocomplete="address-level2" required></label><label class="field"><span>State / province / region</span><input name="state" autocomplete="address-level1" required></label><label class="field"><span>ZIP / postal code</span><input name="postalCode" autocomplete="postal-code" required></label><label class="field"><span>Country</span><select name="country" autocomplete="country-name"><option>United States</option><option>Canada</option><option>Mexico</option><option>United Kingdom</option><option>Australia</option><option>New Zealand</option><option>Austria</option><option>Belgium</option><option>Czech Republic</option><option>Denmark</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>Ireland</option><option>Italy</option><option>Netherlands</option><option>Poland</option><option>Portugal</option><option>Spain</option><option>Sweden</option><option>Japan</option><option>South Korea</option><option>Malaysia</option><option>Singapore</option><option>United Arab Emirates</option></select></label></div>
         </section>
 
         <section class="checkout-panel checkout-deals" aria-labelledby="deals-heading">
@@ -61,17 +61,17 @@
           <div class="checkout-upsell-empty" id="checkout-upsell-empty"><span aria-hidden="true"></span><div><b>Add a collar to unlock an offer</b><p>Checkout deals appear with exactly 1, 2, or 3 collars in your cart.</p></div><a href="products.html">Shop collars</a></div>
           <div class="checkout-upsell" id="checkout-upsell" hidden>
             <label class="checkout-deal-card featured"><span class="best-deal">Matched to your cart</span><input id="checkout-upsell-input" type="checkbox"><span class="deal-checkbox"></span><span class="checkout-deal-copy"><small id="upsell-kicker">2-collar bundle</small><b id="upsell-title">Upgrade to 2 collars — save 8%</b><em id="upsell-savings">Save $2.99 on two collars</em></span><span class="checkout-deal-price"><s id="upsell-retail">$37.98</s><strong id="upsell-price">$34.99</strong></span></label>
-            <div class="checkout-color-choices" id="checkout-color-choices" hidden><div><b>Choose the collar being added</b><span>The collars already in your cart stay unchanged.</span></div><label class="upsell-color"><span>Added collar color</span><select id="upsell-color"><option>Red</option><option>Green</option><option>Yellow</option><option>Blue</option><option>Orange</option></select></label></div>
+            <div class="checkout-color-choices" id="checkout-color-choices" hidden><div><b>Choose the collar being added</b><span>The collars already in your cart stay unchanged.</span></div><label class="upsell-color"><span>Added collar color</span><select id="upsell-color"><option>Red</option><option>Green</option><option>Yellow</option><option>Blue</option><option>Orange</option><option>Pink</option></select></label></div>
           </div>
         </section>
 
         <section class="checkout-panel payment-placeholder" aria-labelledby="payment-heading">
-          <div class="checkout-panel-heading"><span>04</span><div><h2 id="payment-heading">Payment</h2><p>Your payment provider can be connected here next.</p></div></div>
-          <div class="payment-coming"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M7 15h3"></path></svg><div><b>Secure payment connection</b><span>No payment information is collected or stored yet.</span></div></div>
+          <div class="checkout-panel-heading"><span>04</span><div><h2 id="payment-heading">Payment</h2><p>Online payment will be added here when secure checkout launches.</p></div></div>
+          <div class="payment-coming"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M7 15h3"></path></svg><div><b>No payment due today</b><span>Send your order request now and we will contact you at the email above. No card details are collected.</span></div></div>
         </section>
 
-        <button class="place-order button button-primary" type="submit">Continue to Secure Payment</button>
-        <p class="checkout-status" id="checkout-status" role="status" aria-live="polite">Order details stay in this browser until the inbox and payment APIs are connected.</p>
+        <button class="place-order button button-primary" type="submit">Send Order Request</button>
+        <p class="checkout-status" id="checkout-status" role="status" aria-live="polite">Your order request will be sent to NightHound. You will not be charged today.</p>
       </form>
     </div>
 
@@ -83,7 +83,7 @@
       <div class="promo-code-box"><label for="promo-code">Promo code</label><div><input id="promo-code" type="text" autocomplete="off" placeholder="Enter code"><button id="apply-promo" type="button">Apply</button></div><p id="promo-message">Use NIGHTHOUND10 for 10% off.</p></div>
       <div class="checkout-totals"><div><span>Subtotal</span><strong id="checkout-subtotal">$0.00 USD</strong></div><div class="discount-total"><span>Discounts</span><strong id="checkout-savings">—</strong></div><div><span>Shipping</span><strong id="checkout-shipping">Calculated next</strong></div><div class="checkout-grand-total"><span>Total</span><strong id="checkout-total">$0.00 USD</strong></div></div>
       <div class="checkout-shipping-meter"><div><span id="checkout-shipping-message">Add collars to start</span><b id="checkout-shipping-label">$40 goal</b></div><div><i id="checkout-shipping-progress"></i></div></div>
-      <div class="checkout-trust"><span>✓ Adjustable fit</span><span>✓ Five glow colors</span><span>✓ Secure checkout</span></div>
+      <div class="checkout-trust"><span>✓ Adjustable fit</span><span>✓ Six glow colors</span><span>✓ Secure checkout</span></div>
     </aside>
   </main>
 

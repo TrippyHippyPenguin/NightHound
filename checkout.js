@@ -2,6 +2,16 @@ const RETAIL_PRICE = 18.99;
 const SHIPPING_THRESHOLD = 40;
 const STANDARD_SHIPPING = 4.99;
 const PROMO_CODE = 'NIGHTHOUND10';
+const BASIN_ENDPOINT = 'https://usebasin.com/f/567a8bd2fb06';
+const PENDING_ORDER_KEY = 'nighthound-pending-order-number';
+const CURRENCIES = {
+  USD: { rate: 1, symbol: '$' },
+  CAD: { rate: 1.389, symbol: 'C$' },
+  EUR: { rate: 0.862, symbol: '€' },
+  GBP: { rate: 0.739, symbol: '£' },
+  AUD: { rate: 1.396, symbol: 'A$' },
+  NZD: { rate: 1.690, symbol: 'NZ$' }
+};
 const DEALS = {
   1: { name: '2-Collar Bundle', targetQuantity: 2, price: 34.99, percent: 8, kicker: '2-collar bundle' },
   2: { name: '3-Collar Bundle', targetQuantity: 3, price: 47.99, percent: 16, kicker: '3-collar bundle' },
@@ -14,8 +24,37 @@ cart = cart.map(item => ({ ...item, price: RETAIL_PRICE }));
 
 const qualifyingDeal = DEALS[cart.length] || null;
 const state = { upsell: false, extraColor: 'Blue', promoApplied: false };
+let activeCurrency = 'USD';
+try {
+  const savedCurrency = localStorage.getItem('nighthound-currency');
+  if (savedCurrency && CURRENCIES[savedCurrency]) activeCurrency = savedCurrency;
+} catch { /* Checkout defaults to USD when storage is unavailable. */ }
 
-function money(value) { return `$${value.toFixed(2)} USD`; }
+function money(value) {
+  const currency = CURRENCIES[activeCurrency];
+  return `${currency.symbol}${(value * currency.rate).toFixed(2)} ${activeCurrency}`;
+}
+
+function createOrderNumber() {
+  const date = new Date();
+  const datePart = [date.getUTCFullYear(), String(date.getUTCMonth() + 1).padStart(2, '0'), String(date.getUTCDate()).padStart(2, '0')].join('');
+  const randomBytes = new Uint8Array(5);
+  crypto.getRandomValues(randomBytes);
+  const randomPart = Array.from(randomBytes, byte => byte.toString(36).padStart(2, '0')).join('').toUpperCase();
+  return `NH-${datePart}-${randomPart}`;
+}
+
+function pendingOrderNumber() {
+  try {
+    const existing = sessionStorage.getItem(PENDING_ORDER_KEY);
+    if (existing) return existing;
+    const created = createOrderNumber();
+    sessionStorage.setItem(PENDING_ORDER_KEY, created);
+    return created;
+  } catch {
+    return createOrderNumber();
+  }
+}
 
 function currentOrder() {
   const originalItems = cart.map(item => ({ ...item, price: Number(item.price) }));
@@ -27,6 +66,7 @@ function currentOrder() {
   const afterDeal = retail - dealDiscount;
   const promoDiscount = state.promoApplied ? afterDeal * 0.10 : 0;
   const subtotal = afterDeal - promoDiscount;
+  const shipping = subtotal >= SHIPPING_THRESHOLD ? 0 : (items.length ? STANDARD_SHIPPING : 0);
   return {
     deal: state.upsell ? qualifyingDeal?.name : null,
     promoCode: state.promoApplied ? PROMO_CODE : null,
@@ -34,7 +74,9 @@ function currentOrder() {
     retail,
     dealDiscount,
     promoDiscount,
-    subtotal
+    subtotal,
+    shipping,
+    total: subtotal + shipping
   };
 }
 
@@ -129,17 +171,18 @@ function renderSummary() {
   items.innerHTML = order.items.map(item => `<div class="checkout-line"><div class="checkout-line-image"><img src="assets/collar-${item.color.toLowerCase()}.png" alt=""></div><div><b>${item.color} Glow Collar${item.upsell ? ' <em>Bundle item</em>' : ''}</b><span>Adjustable · ${item.color}</span></div><strong>${money(Number(item.price))}</strong></div>`).join('');
 
   const savings = order.dealDiscount + order.promoDiscount;
-  const shipping = order.subtotal >= SHIPPING_THRESHOLD ? 0 : (order.items.length ? STANDARD_SHIPPING : 0);
   document.querySelector('#checkout-subtotal').textContent = money(order.retail);
   document.querySelector('#checkout-savings').textContent = savings > 0 ? `−${money(savings)}` : '—';
-  document.querySelector('#checkout-shipping').textContent = shipping === 0 && order.items.length ? 'FREE' : money(shipping);
-  document.querySelector('#checkout-total').textContent = money(order.subtotal + shipping);
+  document.querySelector('#checkout-shipping').textContent = order.shipping === 0 && order.items.length ? 'FREE' : money(order.shipping);
+  document.querySelector('#checkout-total').textContent = money(order.total);
+  document.querySelector('#checkout-max-savings').textContent = `Save up to ${money((4 * RETAIL_PRICE) - DEALS[3].price)}`;
+  document.querySelector('#checkout-announcement-threshold').textContent = money(SHIPPING_THRESHOLD);
 
   const remaining = Math.max(0, SHIPPING_THRESHOLD - order.subtotal);
   const progress = Math.min(100, order.subtotal / SHIPPING_THRESHOLD * 100);
   document.querySelector('#checkout-shipping-progress').style.width = `${progress}%`;
   document.querySelector('#checkout-shipping-message').textContent = !order.items.length ? 'Add collars to start' : remaining === 0 ? 'Free shipping unlocked' : `Add ${money(remaining)} for free shipping`;
-  document.querySelector('#checkout-shipping-label').textContent = remaining === 0 && order.items.length ? 'FREE' : '$40 goal';
+  document.querySelector('#checkout-shipping-label').textContent = remaining === 0 && order.items.length ? 'FREE' : `${money(SHIPPING_THRESHOLD).replace(` ${activeCurrency}`, '')} goal`;
 }
 
 document.querySelector('#checkout-upsell-input').addEventListener('change', event => {
@@ -187,7 +230,7 @@ document.querySelector('#promo-code').addEventListener('keydown', event => {
   }
 });
 
-document.querySelector('#checkout-form').addEventListener('submit', event => {
+document.querySelector('#checkout-form').addEventListener('submit', async event => {
   event.preventDefault();
   const form = event.currentTarget;
   if (!form.reportValidity()) return;
@@ -198,9 +241,59 @@ document.querySelector('#checkout-form').addEventListener('submit', event => {
     return;
   }
   const details = Object.fromEntries(new FormData(form).entries());
-  const payload = { customer: details, deal: order.deal, promoCode: order.promoCode, items: order.items, retail: order.retail, discount: order.dealDiscount + order.promoDiscount, subtotal: order.subtotal, createdAt: new Date().toISOString() };
-  sessionStorage.setItem('nighthound-checkout-payload', JSON.stringify(payload));
-  document.querySelector('#checkout-status').textContent = 'Order details are ready. Connect the inbox and payment APIs to send and complete this order.';
+  const orderNumber = pendingOrderNumber();
+  const discount = order.dealDiscount + order.promoDiscount;
+  const payload = {
+    order_number: orderNumber,
+    order_status: 'Order request - payment not collected',
+    email: details.email,
+    first_name: details.firstName,
+    last_name: details.lastName,
+    street_address: details.address,
+    city: details.city,
+    state: details.state,
+    postal_code: details.postalCode,
+    country: details.country,
+    item_count: order.items.length,
+    items: order.items.map((item, index) => `${index + 1}. ${item.name} (${item.color}) - ${money(Number(item.price))}${item.upsell ? ' [bundle item]' : ''}`).join('\n'),
+    deal: order.deal || 'None',
+    promo_code: order.promoCode || 'None',
+    retail_total: money(order.retail),
+    discount: money(discount),
+    subtotal: money(order.subtotal),
+    shipping: order.shipping === 0 ? 'FREE' : money(order.shipping),
+    order_total: money(order.total),
+    currency: activeCurrency,
+    created_at: new Date().toISOString(),
+    source_page: window.location.href
+  };
+  const button = form.querySelector('[type="submit"]');
+  const status = document.querySelector('#checkout-status');
+  button.disabled = true;
+  button.textContent = 'Sending Order…';
+  status.textContent = `Sending order ${orderNumber}…`;
+
+  try {
+    sessionStorage.setItem('nighthound-checkout-payload', JSON.stringify(payload));
+    const response = await fetch(BASIN_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`Basin returned ${response.status}`);
+
+    localStorage.removeItem('nighthound-cart');
+    sessionStorage.removeItem(PENDING_ORDER_KEY);
+    sessionStorage.setItem('nighthound-last-order-number', orderNumber);
+    button.textContent = 'Order Request Sent';
+    status.textContent = `Thank you! Your order number is ${orderNumber}. We sent your request to NightHound and will contact you at ${details.email}. No payment was collected.`;
+    form.querySelectorAll('input, select, button').forEach(control => { control.disabled = true; });
+  } catch (error) {
+    console.error('NightHound order submission failed:', error);
+    button.disabled = false;
+    button.textContent = 'Try Sending Again';
+    status.textContent = `We could not send order ${orderNumber}. Check your connection and try again; your order number will stay the same.`;
+  }
 });
 
 setupUpsell();
