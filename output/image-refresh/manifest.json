@@ -1,0 +1,55 @@
+{
+  "date": "2026-09-06",
+  "tool": "built-in image_gen",
+  "images": [
+    {
+      "key": "hero",
+      "ref": "hero-night-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Generate one completely new, convincingly real editorial photograph for a dog collar storefront. Reference is for product construction and rough framing only; do not reproduce its synthetic textures or pose exactly. Real canine anatomy, irregular individual hairs and whiskers, moist textured nose, understated eye reflections, subtle sensor grain, believable depth of field with recognizable surroundings, gentle natural dusk exposure. Collar must remain woven nylon with narrow integrated illuminated strip, black plastic buckle, metal D-ring and small matching round LED pendant. Light spills only subtly onto adjacent fur. No neon halo, CGI, plastic fur, hyper-sharpening, dramatic color grading, text, watermark, or collage. Landscape 1536x1024 composition: adult black Labrador with a few grey muzzle hairs wearing BLUE collar, on right-hand 55 percent of frame, head and chest fully visible with headroom; left-hand 45 percent is a dim quiet residential sidewalk for existing website copy. Candid calm glance toward left, slightly uneven ears, mouth closed. Real modest houses and hedges in early evening, no staged studio lighting.",
+      "source": "C:\\Users\\wasup\\.codex\\generated_images\\01a07890-30bf-7360-ae90-c384650b7705\\exec-a273dc08-60a9-4388-93ca-07acfc08e650.png",
+      "dest": "assets/hero-night-v2.webp"
+    },
+    {
+      "key": "blue",
+      "ref": "dog-collar-blue-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Generate one completely new, convincingly real editorial photograph for a dog collar storefront. Reference is for product construction and rough framing only; do not reproduce its synthetic textures or pose exactly. Real canine anatomy, irregular individual hairs and whiskers, moist textured nose, understated eye reflections, subtle sensor grain, believable depth of field with recognizable surroundings, gentle natural dusk exposure. Collar must remain woven nylon with narrow integrated illuminated strip, black plastic buckle, metal D-ring and small matching round LED pendant. Light spills only subtly onto adjacent fur. No neon halo, CGI, plastic fur, hyper-sharpening, dramatic color grading, text, watermark, or collage. Square 1254x1254 composition. Black and white border collie wearing BLUE collar on an ordinary neighborhood footpath at dusk. Head and upper chest fully visible, generous margin around ears and pendant, looking slightly left of camera with relaxed slightly open mouth. A few wisps of wind-tousled fur. Authentic handheld dog-walk photograph, muted grass and houses behind.",
+      "source": "C:\\Users\\wasup\\.codex\\generated_images\\01a07890-30bf-7360-ae90-c384650b7705\\exec-0440e8d2-a612-4352-bd49-8eca416ffb06.png",
+      "dest": "assets/dog-collar-blue-v2.webp"
+    },
+    {
+      "key": "green",
+      "ref": "dog-collar-green.webp",
+      "prompt": "Use case: photorealistic-natural. Generate one completely new, convincingly real editorial photograph for a dog collar storefront. Reference is for product construction and rough framing only; do not reproduce its synthetic textures or pose exactly. Real canine anatomy, irregular individual hairs and whiskers, moist textured nose, understated eye reflections, subtle sensor grain, believable depth of field with recognizable surroundings, gentle natural dusk exposure. Collar must remain woven nylon with narrow integrated illuminated strip, black plastic buckle, metal D-ring and small matching round LED pendant. Light spills only subtly onto adjacent fur. No neon halo, CGI, plastic fur, hyper-sharpening, dramatic color grading, text, watermark, or collage. Square 1254x1254 composition. Chocolate Labrador wearing GREEN collar in a grassy park beside a gravel path at dusk. Head and upper chest fully visible with headroom and pendant visible, face slightly turned right, relaxed soft mouth barely open. Rich brown fur with natural variations and little flecks of grey near chin. Real uneven lawn and trees softly resolved in background.",
+      "source": "C:\\Users\\wasup\\.codex\\generated_images\\01a07890-30bf-7360-ae90-c384650b7705\\exec-6716f925-09f0-4d31-9e94-9161ee303aba.png",
+      "dest": "assets/dog-collar-green.webp"
+    },
+    {
+      "key": "red",
+      "ref": "dog-collar-red.webp",
+      "prompt": "Use case: photorealistic-natural. Generate one completely new, convincingly real editorial photograph for a dog collar storefront. Reference is for product construction and rough framing only; do not reproduce its synthetic textures or pose exactly. Real canine anatomy, irregular individual hairs and whiskers, moist textured nose, understated eye reflections, subtle sensor grain, believable depth of field with recognizable surroundings, gentle natural dusk exposure. Collar must remain woven nylon with narrow integrated illuminated strip, black plastic buckle, metal D-ring and small matching round LED pendant. Light spills only subtly onto adjacent fur. No neon halo, CGI, plastic fur, hyper-sharpening, dramatic color grading, text, watermark, or collage. Square 1254x1254 composition. Brindle mixed-breed dog with a white chest wearing RED collar on a residential sidewalk beside a wooden fence at dusk. Three-quarter head and chest portrait, entire ears and pendant safely inside frame, dog casually looking to right, one ear flopped more than the other. Ordinary damp paving and softly resolved fence, spontaneous unposed moment.",
+      "source": "C:\\Users\\wasup\\.codex\\generated_images\\01a07890-30bf-7360-ae90-c384650b7705\\exec-8fdfd015-43a2-47b3-b64b-d9209daf0316.png",
+      "dest": "assets/dog-collar-red.webp"
+    },
+    {
+      "key": "pink",
+      "ref": "dog-collar-pink.webp",
+      "prompt": "Use case: photorealistic-natural. Generate one completely new, convincingly real editorial photograph for a dog collar storefront. Reference is for product construction and rough framing only; do not reproduce its synthetic textures or pose exactly. Real canine anatomy, irregular individual hairs and whiskers, moist textured nose, understated eye reflections, subtle sensor grain, believable depth of field with recognizable surroundings, gentle natural dusk exposure. Collar must remain woven nylon with narrow integrated illuminated strip, black plastic buckle, metal D-ring and small matching round LED pendant. Light spills only subtly onto adjacent fur. No neon halo, CGI, plastic fur, hyper-sharpening, dramatic color grading, text, watermark, or collage. Square 1254x1254 composition. Black and white border collie wearing PINK collar beside a grassy walking path in early evening. New candid portrait, looking toward its off-camera owner slightly to right with relaxed closed mouth and one ear tilted. Full head and upper chest, generous margin, pendant visible. Unruly white chest fur, natural asymmetrical facial markings, subdued trees and houses in background.",
+      "source": "C:\\Users\\wasup\\.codex\\generated_images\\01a07890-30bf-7360-ae90-c384650b7705\\exec-16dea503-6029-4cbc-b83e-1b8cffe3885c.png",
+      "dest": "assets/dog-collar-pink.webp"
+    },
+    {
+      "key": "orange",
+      "ref": "dog-collar-orange.webp",
+      "prompt": "Use case: photorealistic-natural. Generate one completely new, convincingly real editorial photograph for a dog collar storefront. Reference is for product construction and rough framing only; do not reproduce its synthetic textures or pose exactly. Real canine anatomy, irregular individual hairs and whiskers, moist textured nose, understated eye reflections, subtle sensor grain, believable depth of field with recognizable surroundings, gentle natural dusk exposure. Collar must remain woven nylon with narrow integrated illuminated strip, black plastic buckle, metal D-ring and small matching round LED pendant. Light spills only subtly onto adjacent fur. No neon halo, CGI, plastic fur, hyper-sharpening, dramatic color grading, text, watermark, or collage. Square 1254x1254 composition. Tricolor beagle wearing ORANGE collar on a quiet suburban sidewalk at dusk. Full head and chest with generous margins around ears and visible pendant, looking curiously slightly left, mouth closed, floppy ears naturally uneven. Tiny freckles on white muzzle, short fur has real directional texture. Fallen leaves and modest front garden behind, casually photographed at dog's eye level.",
+      "source": "C:\\Users\\wasup\\.codex\\generated_images\\01a07890-30bf-7360-ae90-c384650b7705\\exec-28d66ae3-d056-4ad0-bb8f-8568c3b76f93.png",
+      "dest": "assets/dog-collar-orange.webp"
+    },
+    {
+      "key": "yellow",
+      "ref": "dog-collar-yellow.webp",
+      "prompt": "Use case: photorealistic-natural. Generate one completely new, convincingly real editorial photograph for a dog collar storefront. Reference is for product construction and rough framing only; do not reproduce its synthetic textures or pose exactly. Real canine anatomy, irregular individual hairs and whiskers, moist textured nose, understated eye reflections, subtle sensor grain, believable depth of field with recognizable surroundings, gentle natural dusk exposure. Collar must remain woven nylon with narrow integrated illuminated strip, black plastic buckle, metal D-ring and small matching round LED pendant. Light spills only subtly onto adjacent fur. No neon halo, CGI, plastic fur, hyper-sharpening, dramatic color grading, text, watermark, or collage. Square 1254x1254 composition. Adult golden retriever wearing YELLOW collar beside a weathered wooden garden fence at dusk. Full head and upper chest with headroom, collar and pendant clearly visible amid naturally ruffled fur. Dog glancing right with relaxed slightly open mouth. Cream and honey fur with irregular feathering and slight grey muzzle, real softly focused lane behind.",
+      "source": "C:\\Users\\wasup\\.codex\\generated_images\\01a07890-30bf-7360-ae90-c384650b7705\\exec-e0a77ebe-610a-4cff-9940-6b41e2c01f49.png",
+      "dest": "assets/dog-collar-yellow.webp"
+    }
+  ]
+}
