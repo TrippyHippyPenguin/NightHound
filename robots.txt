@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /NightHound/checkout.html
+Disallow: /checkout.html
+
+Sitemap: https://trippyhippypenguin.github.io/NightHound/sitemap.xml

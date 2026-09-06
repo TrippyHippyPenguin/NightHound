@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#0a0c10">
+  <script>
+    // GitHub Pages keeps the requested URL when it serves 404.html. Set a base
+    // before loading assets so nested missing paths still resolve correctly.
+    (function () {
+      var base = document.createElement('base');
+      var projectPath = '/NightHound/';
+      var usesProjectPath = location.hostname.endsWith('.github.io') || location.pathname.startsWith(projectPath);
+      var root = usesProjectPath ? projectPath : '/';
+      base.href = root;
+      document.head.appendChild(base);
+
+      // Create external asset links only after the root is known. This avoids a
+      // browser preload resolving them against a nested missing URL too early.
+      var icon = document.createElement('link');
+      icon.rel = 'icon';
+      icon.type = 'image/png';
+      icon.sizes = '32x32';
+      icon.setAttribute('href', root + 'assets/favicon-32.png');
+      document.head.appendChild(icon);
+      var stylesheet = document.createElement('link');
+      stylesheet.rel = 'stylesheet';
+      stylesheet.setAttribute('href', root + 'styles.css');
+      document.head.appendChild(stylesheet);
+    }());
+  </script>
+  <title>Page Not Found | NightHound</title>
+</head>
+<body><main class="error-main"><div><a class="wordmark" href="index.html"><span class="brand-symbol" aria-hidden="true"><i></i></span><span>Night<b>Hound</b></span></a><p class="error-code" aria-hidden="true">404</p><h1>This trail ends here.</h1><p>The page you were looking for could not be found.</p><div class="button-row"><a class="button button-primary" href="index.html">Return home</a><a class="button button-secondary" href="product.html">Shop the Glow Collar</a></div></div></main></body>
+</html>

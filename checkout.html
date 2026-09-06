@@ -1,108 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Complete your NightHound order, review your glowing dog collars, shipping details, available bundle savings, and secure payment options.">
-  <meta name="robots" content="index, follow">
-  <meta name="application-name" content="NightHound">
-  <meta name="theme-color" content="#071014">
-
-  <meta property="og:locale" content="en_US">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="NightHound">
-  <meta property="og:title" content="Checkout | NightHound">
-  <meta property="og:description" content="Complete your NightHound order, review your glowing dog collars, shipping details, available bundle savings, and secure payment options.">
-  <meta property="og:image" content="assets/LogoNH.png">
-  <meta property="og:image:alt" content="NightHound glowing dog collar logo">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Checkout | NightHound">
-  <meta name="twitter:description" content="Complete your NightHound order, review your glowing dog collars, shipping details, available bundle savings, and secure payment options.">
-  <meta name="twitter:image" content="assets/LogoNH.png">
-  <meta name="twitter:image:alt" content="NightHound glowing dog collar logo">
-
-  <link rel="icon" type="image/png" href="assets/LogoNH.png">
-  <link rel="apple-touch-icon" href="assets/LogoNH.png">
-  <title>Checkout | NightHound</title>
-  <script>document.documentElement.dataset.theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review your saved NightHound cart and current shipping total. Online ordering is being prepared.">
+  <meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#0a0c10">
+  <link rel="canonical" href="https://trippyhippypenguin.github.io/NightHound/checkout.html"><link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="assets/favicon-192.png"><link rel="stylesheet" href="styles.css">
+  <title>Online Ordering Coming Soon | NightHound</title>
 </head>
 <body class="checkout-page">
-  <a class="skip-link" href="#checkout-main">Skip to checkout</a>
-  <div class="announcement"><span>Checkout exclusive</span><strong id="checkout-max-savings">Save up to $15.97 USD</strong><i aria-hidden="true"></i><span>Free shipping over <strong id="checkout-announcement-threshold">$40.00 USD</strong></span></div>
-  <header class="site-header checkout-header">
-    <a class="brand nav-brand" href="index.html" aria-label="NightHound home"><img class="nav-logo" src="assets/LogoNH.png" alt=""></a>
-    <div class="checkout-progress" aria-label="Checkout progress"><span class="complete">Cart</span><i></i><span class="active">Information</span><i></i><span>Payment</span></div>
-    <div class="secure-checkout"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg> Secure checkout</div>
-  </header>
-
-  <main id="checkout-main" class="checkout-shell">
-    <div class="checkout-content">
-      <section class="checkout-intro"><p class="eyebrow"><span></span> Order information</p><h1>Checkout</h1><p>Complete your details, then choose whether one of today’s checkout-only deals belongs in your order.</p></section>
-
-      <form id="checkout-form" action="https://usebasin.com/f/567a8bd2fb06" method="POST" enctype="multipart/form-data">
-        <section class="checkout-panel" aria-labelledby="contact-heading">
-          <div class="checkout-panel-heading"><span>01</span><div><h2 id="contact-heading">Contact</h2><p>Where should we send your order updates?</p></div></div>
-          <div class="field-grid"><label class="field full"><span>Email address</span><input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label><label class="field"><span>First name</span><input name="firstName" autocomplete="given-name" required></label><label class="field"><span>Last name</span><input name="lastName" autocomplete="family-name" required></label></div>
-        </section>
-
-        <section class="checkout-panel" aria-labelledby="shipping-heading">
-          <div class="checkout-panel-heading"><span>02</span><div><h2 id="shipping-heading">Shipping</h2><p>Enter the delivery address for this order.</p></div></div>
-          <div class="field-grid"><label class="field full"><span>Street address</span><input name="address" autocomplete="street-address" required></label><label class="field"><span>City</span><input name="city" autocomplete="address-level2" required></label><label class="field"><span>State / province / region</span><input name="state" autocomplete="address-level1" required></label><label class="field"><span>ZIP / postal code</span><input name="postalCode" autocomplete="postal-code" required></label><label class="field"><span>Country</span><select name="country" autocomplete="country-name"><option>United States</option><option>Canada</option><option>Mexico</option><option>United Kingdom</option><option>Australia</option><option>New Zealand</option><option>Austria</option><option>Belgium</option><option>Czech Republic</option><option>Denmark</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>Ireland</option><option>Italy</option><option>Netherlands</option><option>Poland</option><option>Portugal</option><option>Spain</option><option>Sweden</option><option>Japan</option><option>South Korea</option><option>Malaysia</option><option>Singapore</option><option>United Arab Emirates</option></select></label></div>
-        </section>
-
-        <section class="checkout-panel checkout-deals" aria-labelledby="deals-heading">
-          <div class="deal-spark" aria-hidden="true"></div>
-          <div class="checkout-panel-heading"><span>03</span><div><p class="checkout-exclusive">Cart-matched offer</p><h2 id="deals-heading">Your checkout deal</h2><p>When your cart qualifies, the matching 2-, 3-, or 4-collar bundle appears here.</p></div></div>
-          <div class="checkout-upsell-empty" id="checkout-upsell-empty"><span aria-hidden="true"></span><div><b>Add a collar to unlock an offer</b><p>Checkout deals appear with exactly 1, 2, or 3 collars in your cart.</p></div><a href="products.html">Shop collars</a></div>
-          <div class="checkout-upsell" id="checkout-upsell" hidden>
-            <label class="checkout-deal-card featured"><span class="best-deal">Matched to your cart</span><input id="checkout-upsell-input" type="checkbox"><span class="deal-checkbox"></span><span class="checkout-deal-copy"><small id="upsell-kicker">2-collar bundle</small><b id="upsell-title">Upgrade to 2 collars — save 8%</b><em id="upsell-savings">Save $2.99 on two collars</em></span><span class="checkout-deal-price"><s id="upsell-retail">$37.98</s><strong id="upsell-price">$34.99</strong></span></label>
-            <div class="checkout-color-choices" id="checkout-color-choices" hidden><div><b>Choose the collar being added</b><span>The collars already in your cart stay unchanged.</span></div><label class="upsell-color"><span>Added collar color</span><select id="upsell-color"><option>Red</option><option>Green</option><option>Yellow</option><option>Blue</option><option>Orange</option><option>Pink</option></select></label></div>
-          </div>
-        </section>
-
-        <section class="checkout-panel payment-placeholder" aria-labelledby="payment-heading">
-          <div class="checkout-panel-heading"><span>04</span><div><h2 id="payment-heading">Payment</h2><p>Online payment will be added here when secure checkout launches.</p></div></div>
-          <div class="payment-coming"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M7 15h3"></path></svg><div><b>No payment due today</b><span>Send your order request now and we will contact you at the email above. No card details are collected.</span></div></div>
-        </section>
-
-        <button class="place-order button button-primary" type="submit">Send Order Request</button>
-        <p class="checkout-status" id="checkout-status" role="status" aria-live="polite">Your order request will be sent to NightHound. You will not be charged today.</p>
-      </form>
+  <a class="skip-link" href="#main">Skip to checkout status</a><div class="announcement-bar" data-announcement>Free rechargeable LED pendant with every collar • Free shipping $30+</div>
+  <header class="site-header checkout-header"><div class="header-inner"><a class="wordmark" href="index.html" aria-label="NightHound home"><span class="brand-symbol" aria-hidden="true"><i></i></span><span>Night<b>Hound</b></span></a><a class="header-back-link" href="product.html">Continue shopping</a><button class="cart-button" type="button" data-cart-open aria-label="Open shopping cart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.4 13H5.4L4 7Z"></path><path d="M8 9V6a4 4 0 0 1 8 0v3"></path></svg><span>Cart</span><b data-cart-count hidden>0</b></button></div></header>
+  <main id="main" class="section checkout-section">
+    <div class="shell checkout-layout">
+      <section class="checkout-message" data-reveal>
+        <span class="status-pill"><i></i> Store update</span>
+        <p class="eyebrow">Online ordering coming soon</p>
+        <h1>Checkout is currently<br>being prepared.</h1>
+        <p>Your cart is saved on this device, including each selected color, size, and quantity. NightHound is not collecting payment or delivery details at this time.</p>
+        <div class="button-row"><a class="button button-primary" href="product.html">Continue shopping</a><button class="button button-secondary" type="button" data-cart-open>Back to cart</button></div>
+        <div class="checkout-reassurance"><div><strong>No payment form</strong><span>No card information is requested or stored.</span></div><div><strong>Your cart stays saved</strong><span>Return on this device to keep editing your selections.</span></div></div>
+      </section>
+      <aside class="checkout-summary-card" aria-label="Saved cart summary" data-reveal><span class="mini-label">Saved on this device</span><h2>Your cart summary</h2><div data-checkout-lines></div></aside>
     </div>
-
-    <aside class="checkout-summary" aria-labelledby="summary-heading">
-      <div class="summary-top"><p>Your order</p><a href="products.html">Keep shopping</a></div>
-      <h2 id="summary-heading">Order summary</h2>
-      <div class="checkout-items" id="checkout-items"></div>
-      <div class="checkout-empty" id="checkout-empty" hidden><div class="brand-mark"><i></i></div><h3>Your cart is empty</h3><p>Add a collar or select a pack deal to continue.</p><a class="button button-card" href="products.html">Shop Collars</a></div>
-      <div class="promo-code-box"><label for="promo-code">Promo code</label><div><input id="promo-code" type="text" autocomplete="off" placeholder="Enter code"><button id="apply-promo" type="button">Apply</button></div><p id="promo-message">Use NIGHTHOUND10 for 10% off.</p></div>
-      <div class="checkout-totals"><div><span>Subtotal</span><strong id="checkout-subtotal">$0.00 USD</strong></div><div class="discount-total"><span>Discounts</span><strong id="checkout-savings">—</strong></div><div><span>Shipping</span><strong id="checkout-shipping">Calculated next</strong></div><div class="checkout-grand-total"><span>Total</span><strong id="checkout-total">$0.00 USD</strong></div></div>
-      <div class="checkout-shipping-meter"><div><span id="checkout-shipping-message">Add collars to start</span><b id="checkout-shipping-label">$40 goal</b></div><div><i id="checkout-shipping-progress"></i></div></div>
-      <div class="checkout-trust"><span>✓ Adjustable fit</span><span>✓ Six glow colors</span><span>✓ Secure checkout</span></div>
-    </aside>
   </main>
-
-  <div class="deal-alert" id="deal-alert" hidden aria-hidden="true">
-    <div class="deal-alert-panel" role="dialog" aria-modal="true" aria-labelledby="deal-alert-title" aria-describedby="deal-alert-copy">
-      <button class="deal-alert-close" id="deal-alert-close" type="button" aria-label="Close savings alert">×</button>
-      <div class="deal-alert-paw" aria-hidden="true"></div>
-      <p class="deal-alert-kicker">Cart savings detected</p>
-      <h2 id="deal-alert-title">Your cart unlocks a bundle.</h2>
-      <p id="deal-alert-copy">Add one collar to access your matching bundle price.</p>
-      <div class="deal-alert-metrics">
-        <div><span>Bundle total</span><strong id="deal-alert-total">$0.00</strong></div>
-        <div><span>Retail savings</span><strong id="deal-alert-savings">$0.00</strong></div>
-        <div><span>Added today</span><strong id="deal-alert-step-up">$0.00</strong></div>
-      </div>
-      <div class="deal-alert-actions"><button class="button button-primary" id="deal-alert-view" type="button">Review My Bundle</button><button class="deal-alert-dismiss" id="deal-alert-dismiss" type="button">Not now</button></div>
-    </div>
-  </div>
-
-  <script src="checkout.js"></script>
+  <footer class="site-footer compact-footer"><div class="shell footer-bottom"><span>© <span data-current-year>2026</span> NightHound</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div></footer>
+  <script src="config.js" defer></script><script src="script.js" defer></script>
 </body>
 </html>
